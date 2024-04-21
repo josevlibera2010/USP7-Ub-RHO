@@ -1,0 +1,21 @@
+Constant pressure constant temperature equilibration stage 2
+ &cntrl
+  nstlim=200000000,         !Number of MD-steps to be performed.
+  dt=0.002,                 !The time step (psec). Recommended MAXIMUM is .002 if SHAKE is used, or .001 if it isn’t
+  ntx=5,                    !Option to read the initial coordinates:  1 (default) Coordinates, but no velocities, will be read;  5 Coordinates and velocities will be read 
+  irest=1,                  !Flag to restart a simulation: 0 (default) Do not restart the simulation, 1 Restart the simulation 
+  ntpr=500,                 !Every ntpr steps, energy information will be printed in human-readable form to files "mdout" and "mdinfo".
+  ntwr=5000,                !Every ntwr steps during dynamics, the “restrt” file will be written
+  ntwx=20000,               !Every ntwx steps, the coordinates will be written to the mdcrd file.
+  ntwv=-1,                  !If ntwv = -1, velocities will be written to mdcrd, which then becomes a combined coordinate/velocity trajectory file, at the interval defined by ntwx.
+  ioutfm=1,                 !The format of coordinate and velocity trajectory files: 1 (default) Binary NetCDF trajectory
+  ntxo=2,                   !Format of the final coordinates, velocities, and box size 2 (default) NetCDF file
+  temp0=300.0,              !Reference temperature at which the system is to be kept
+  ntt=1,                    !1 Constant temperature, using the weak-coupling algorithm
+  tautp=2.0,                !Time constant, in ps, for heat bath coupling for the system
+  ntb=2,                    !2 constant pressure (periodic boundaries are imposed on the system during the calculation of non-bonded interactions.)
+  ntp=1,                    !Flag for constant pressure dynamics, barostat=1 (as default is Berendsen). 1 md with isotropic position scaling
+  ntc=2,                    !Flag for SHAKE to perform bond length constraints. 2 bonds involving hydrogen are constrained
+  ntf=2,                    !Force evaluation. 2 bond interactions involving H-atoms omitted (use with NTC=2)
+  cut=10                    !This is used to specify the nonbonded cutoff, in Angstroms. For PME, the cutoff is used to limit direct space sum, and 8.0 is usually a good value.
+  /

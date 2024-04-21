@@ -1,0 +1,14 @@
+parm dCTL.parm7
+trajin dCTL_fused_traj.nc
+rms first '@C,N,O,CA'
+average crdset avg
+average average.pdb '@C,N,O,CA'
+createcrd traj
+run
+crdaction traj rms ref avg '@C,N,O,CA'
+crdaction traj matrix covar name cov '@C,N,O,CA' out cov_matrix.txt prec 42.40
+
+runanalysis diagmatrix cov out evecs.dat vecs 10 name myEvecs nmwiz nmwizvecs 10 nmwizfile pca.nmd nmwizmask '@C,N,O,CA' 
+crdaction traj projection PCAn modes myEvecs beg 1 end 10 '@C,N,O,CA' crdframes 1,80000 out projections.txt
+
+run

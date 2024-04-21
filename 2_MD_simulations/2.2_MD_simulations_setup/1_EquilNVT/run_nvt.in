@@ -1,0 +1,27 @@
+Heating up the system equilibration stage 1
+ &cntrl
+  nstlim=500000,             !Number of MD-steps to be performed.
+  dt=0.002,                  !The time step (psec). Recommended MAXIMUM is .002 if SHAKE is used, or .001 if it isn’t
+  ntx=1,                     !Option to read the initial coordinates:  1 (default) Coordinates, but no velocities, will be read;  5 Coordinates and velocities will be read 
+  ntwv=-1,                   !If ntwv = -1, velocities will be written to mdcrd, which then becomes a combined coordinate/velocity trajectory file, at the interval defined by ntwx.
+  ntwx=500,                  !Every ntwx steps, the coordinates will be written to the mdcrd file
+  ioutfm=1,                  !The format of coordinate and velocity trajectory files: 1 (default) Binary NetCDF trajectory
+  ntxo=2,                    !Format of the final coordinates, velocities, and box size 2 (default) NetCDF file
+  irest=0,                   !Flag to restart a simulation: 0 (default) Do not restart the simulation, 1 Restart the simulation 
+  ntpr=500,                  !Every ntpr steps, energy information will be printed in human-readable form to files "mdout" and "mdinfo".
+  ntwr=500,                  !Every ntwr steps during dynamics, the “restrt” file will be written
+  ntt=1,                     !1 Constant temperature, using the weak-coupling algorithm
+  tempi=0.0,                 !Initial temperature
+  temp0=300.0,               !Reference temperature at which the system is to be kept
+  tautp=2.0,                 !Time constant, in ps, for heat bath coupling for the system
+  ig=-1,                     !The seed for the pseudo-random number generator. ig=-1, (the default) the random seed will be based on the current date and time
+  ntb=1,                     !1 constant volume 
+  ntp=0,                     !Flag for constant pressure dynamics. 0 No pressure scaling (Default)
+  ntc=2,                     !Flag for SHAKE to perform bond length constraints. 2 bonds involving hydrogen are constrained
+  ntf=2,                     !Force evaluation. 2 bond interactions involving H-atoms omitted (use with NTC=2)
+  ntr=1,                     !Flag for restraining specified atoms in Cartesian space using a harmonic potential, if ntr > 0
+  restraint_wt=5.0,          !The weight (in kcal/mol−Å^2) for the positional restraints.
+  restraintmask=":1-1179",   !(ONLY FOR THE FS MODELS)String that specifies the restrained atoms when ntr=1. 
+ !restraintmask=":1-1159",   !(ONLY FOR THE dCTL MODELS)String that specifies the restrained atoms when ntr=1.
+  cut=10                     !This is used to specify the nonbonded cutoff, in Angstroms. For PME, the cutoff is used to limit direct space sum, and 8.0 is usually a good value.
+  /

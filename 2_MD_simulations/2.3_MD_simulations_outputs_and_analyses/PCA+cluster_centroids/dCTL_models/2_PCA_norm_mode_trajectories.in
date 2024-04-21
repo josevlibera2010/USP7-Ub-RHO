@@ -1,0 +1,10 @@
+parm dCTL.parm7
+trajin dCTL_fused_traj.nc
+readdata evecs.dat name Evecs
+runanalysis modes name Evecs trajout mode1.nc pcmin -985 pcmax 1346 tmode 1 trajoutmask '@C,N,O,CA' trajoutfmt netcdf
+runanalysis modes name Evecs trajout mode2.nc pcmin -832 pcmax 653 tmode 2 trajoutmask '@C,N,O,CA' trajoutfmt netcdf
+runanalysis modes name Evecs trajout mode3.nc pcmin -675 pcmax 769 tmode 3 trajoutmask '@C,N,O,CA' trajoutfmt netcdf
+runanalysis modes name Evecs trajout mode4.nc pcmin -407 pcmax 769 tmode 4 trajoutmask '@C,N,O,CA' trajoutfmt netcdf
+runanalysis modes name Evecs trajout mode5.nc pcmin -391 pcmax 421 tmode 5 trajoutmask '@C,N,O,CA' trajoutfmt netcdf
+strip '!@C,N,O,CA' parmout modes.parm7
+run

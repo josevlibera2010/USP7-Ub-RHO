@@ -1,0 +1,9 @@
+parm cent.parm7
+trajin cent.nc
+rms first ':208-560 & !@H='
+average crdset MyAvg ':208-560 & !@H='
+rms ref MyAvg ':208-560 & !@H='
+atomicfluct byres out RMSF1.out ':1-1102 & !@H=' start 0 stop 9999 offset 1
+atomicfluct byres out RMSF2.out ':1-1102 & !@H=' start 10000 stop 19999 offset 1
+atomicfluct byres out RMSF3.out ':1-1102 & !@H=' start 20000 stop 29999 offset 1
+atomicfluct byres out RMSF4.out ':1-1102 & !@H=' start 30000 stop 39999 offset 1

@@ -1,0 +1,10 @@
+source leaprc.protein.ff14SB
+source leaprc.phosaa14SB
+source leaprc.gaff2
+loadAmberPrep RHA.prepin
+loadAmberParams RHA.frcmod
+source leaprc.water.tip3p
+mol = loadPDB model.pdb
+addions2 mol Na+ 128 Cl- 85
+solvateoct mol TIP3PBOX 12
+saveAmberParm mol USP7_RHA.parm7 USP7_RHA.rst7
